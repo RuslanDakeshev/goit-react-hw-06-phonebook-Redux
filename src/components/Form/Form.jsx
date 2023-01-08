@@ -8,11 +8,7 @@ import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { getContacts } from 'redux/contacts/contacts-selector';
 
-// const nanoid = customAlphabet('1234567890', 3);
 
-//   nanoid = customAlphabet('1234567890abcdef', 10);
-//   nameInputId = nanoid();
-//   numberInputId = nanoid();
 
 export const Form = () => {
   const [name, setName] = useState('');
