@@ -1,17 +1,20 @@
 
-import PropTypes from 'prop-types';
+import { useDispatch } from "react-redux"
+import { setFilter } from "redux/filter/filter-actions"
 import { Wrapper, Label, Input } from "./Filter.styled"
 
-export const Filter = ({ value, onFilter }) => {
+export const Filter = () => {
+
+  const dispatch = useDispatch()
+
   return (
     <Wrapper>
       <Label>Find contacts by name</Label>
-      <Input type="text" value={value} onChange={onFilter} />
+      <Input type="text" name='filter' pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+        onChange={e => dispatch(setFilter(e.target.value.toLowerCase()))}
+      required />
     </Wrapper>)
 }
 
-Filter.propTypes = {
-  value: PropTypes.string.isRequired,
-  onFilter: PropTypes.func.isRequired,
-};
+
 
